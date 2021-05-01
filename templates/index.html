@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calculadora Pitagoras</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.css')}}">
+</head>
+<body>
+    <section>
+        <div>
+            <form action="/calcular" method="POST">
+                <div>
+                    <label for="cateto1">Cateto A:</label>
+                    <input name="cateto1" id="cateto1" type="text" value="{{resultado.cateto1}}" class="form-control"/>
+                </div>
+                <div>
+                    {{ msg }}
+                </div>
+                <div>
+                    <label for="cateto2">Cateto B:</label>
+                    <input name="cateto2" id="cateto2" type="text" value="{{resultado.cateto2}}"  class="form-control"/>
+                </div>
+                <div>
+                    {{ msg2 }}
+                </div>
+                <div>
+                    <p> Resultado: {{ resultado.hipotenusa }} </p>
+                </div>
+                <div>
+                <button class="btn btn-primary">Calcular</button>
+                </div>
+                <div>
+                <img src="{{url_for('static', filename='img/icon.png')}}">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
