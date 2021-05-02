@@ -14,8 +14,8 @@ class TrianguloRetangulo:
         self.hipotenusa = math.sqrt((math.pow(self.cateto1, 2) + math.pow(self.cateto2, 2)))
 
 
-msg_error = ""
-msg_error_2 = ""
+msg_error = "d-none"
+msg_error_2 = "d-none"
 triangulo = TrianguloRetangulo("","","")
 
 
@@ -37,21 +37,23 @@ def operacao():
     cateto_2 = request.form['cateto2']
     if not is_number(cateto_1):
         global msg_error
-        msg_error = "valor invalido"
+        msg_error = ""
         triangulo.cateto1= ""
         triangulo.hipotenusa = ""
         verifica = False
 
     else:
         triangulo.cateto1 = float(cateto_1)
+        msg_error = "d-none"
     if not is_number(cateto_2):
         global msg_error_2
-        msg_error_2 = "Valor invalido!"
+        msg_error_2 = ""
         triangulo.cateto2 = ""
         triangulo.hipotenusa = ""
         verifica = False
     else:
-            triangulo.cateto2=float(cateto_2)
+        triangulo.cateto2 = float(cateto_2)
+        msg_error_2 = "d-none"
     if verifica:
         triangulo.calcular()
     return redirect('/')
